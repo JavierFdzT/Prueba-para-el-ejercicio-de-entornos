@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cajero Bancario</title>
+
+	<script>
+		var decidir = " euros es ahora el saldo de su libreta.";
+		var libreta = 81;
+		var cargoLuz = 45;
+		var cargoAgua = 27;
+
+		function pagarServicio(importe, resultadoId) {
+			libreta = libreta - importe;
+			document.getElementById("Riendo1").innerHTML = libreta;
+			document.getElementById(resultadoId).innerHTML = libreta + decidir;
+		}
+	</script>
+</head>
+
+<body onload="
+document.getElementById('Riendo1').innerHTML = libreta;
+document.getElementById('Riendo2').innerHTML = cargoLuz;
+document.getElementById('Riendo3').innerHTML = cargoAgua;
+">
+
+	<p style="background-color:pink">
+		<i>Inicio de sesión: <span id="Riendo0"></span></i>
+	</p>
+
+	<script>
+		var session = new Date();
+		document.getElementById("Riendo0").innerHTML = session;
+	</script>
+
+	<hr>
+
+	<p>El Saldo actual de su Libreta Bancaria es:
+		<b><span id="Riendo1"></span> euros</b>
+	</p>
+
+	<hr>
+
+	<!-- LUZ -->
+	<p>Por servicios de electricidad tiene pendiente un pago de:
+		<span id="Riendo2"></span> euros
+	</p>
+
+	<p>¿Desea realizar el pago ahora?</p>
+
+	<button onclick="pagarServicio(cargoLuz,'resultadoLuz'); this.disabled=true;">
+		Sí. Pagar ahora.
+	</button>
+
+	<p id="resultadoLuz"></p>
+
+	<hr>
+
+	<!-- AGUA -->
+	<p>Por servicios de agua tiene pendiente un pago de:
+		<span id="Riendo3"></span> euros
+	</p>
+
+	<p>¿Desea realizar el pago ahora?</p>
+
+	<button onclick="pagarServicio(cargoAgua,'resultadoAgua'); this.disabled=true;">
+		Sí. Pagar ahora.
+	</button>
+
+	<p id="resultadoAgua"></p>
+
+</body>
+</html>
